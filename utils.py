@@ -1,5 +1,6 @@
 from torch.utils.data import Dataset
 import torch
+import seaborn as sns
 
 import matplotlib.pyplot as plt
 
@@ -8,14 +9,18 @@ def plot_uncertanity(x_plot, y_mean, y_std):
     Plot the uncertanity
 
     x_plot: Values in x
-    y_mean: Prediccions mean
-    y_std:  Prediccions std
+    y_mean: Predictions mean
+    y_std:  Predictions std
     '''
-    x_plot = torch.flatten(x_plot)
-    plt.plot(x_plot, y_mean, c='black')
-    plt.fill_between(x_plot, y_mean-y_std, y_mean+y_std ,alpha=0.3,color='red')
-    plt.title("Deep ensemble uncertanity")
-    plt.grid()
+    #clrs = sns.color_palette("husl", 5)
+    with sns.axes_style("darkgrid"):
+        x_plot = torch.flatten(x_plot)
+        plt.plot(x_plot, y_mean, c='black')
+        plt.fill_between(x_plot, y_mean-y_std, y_mean+y_std ,alpha=0.3,color='red')
+        plt.fill_between(x_plot, y_mean-3*y_std, y_mean+3*y_std ,alpha=0.3,color='m')
+        plt.title("Deep ensemble uncertanity")
+        plt.show()
+        
 
 class CustomDataset(Dataset):
     def __init__(self, X, y):
@@ -80,5 +85,5 @@ def trainer(model, train_dataloader, val_dataloader, optimizer, criterion, epoch
 
         model.eval()
         
-        if epoch%verbose == 0:
-            print("Epoch: {} :::: Train loss {} :::: Val loss {} \n".format(epoch, train_loss, val_loss))
+        if (epoch+1) % verbose == 0:
+            print("Epoch: {} :::: Train loss {} :::: Val loss {} \n".format(epoch+1, train_loss, val_loss))
