@@ -4,13 +4,14 @@ import seaborn as sns
 
 import matplotlib.pyplot as plt
 
-def plot_uncertanity(x_plot, y_mean, y_std):
+def plot_uncertanity(x_plot, y_mean, y_std, title='Uncertanity'):
     '''
     Plot the uncertanity
 
     x_plot: Values in x
     y_mean: Predictions mean
     y_std:  Predictions std
+    title:  Titulo de la grafica
     '''
     #clrs = sns.color_palette("husl", 5)
     with sns.axes_style("darkgrid"):
@@ -18,7 +19,7 @@ def plot_uncertanity(x_plot, y_mean, y_std):
         plt.plot(x_plot, y_mean, c='black')
         plt.fill_between(x_plot, y_mean-y_std, y_mean+y_std ,alpha=0.3,color='red')
         plt.fill_between(x_plot, y_mean-3*y_std, y_mean+3*y_std ,alpha=0.3,color='m')
-        plt.title("Deep ensemble uncertanity")
+        plt.title(title)
         plt.show()
         
 
@@ -41,7 +42,6 @@ def trainer(model, train_dataloader, val_dataloader, optimizer, criterion, epoch
     if device is None:
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-    
     model.to(device)
 
     #Training
