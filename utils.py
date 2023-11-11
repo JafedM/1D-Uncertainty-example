@@ -57,7 +57,7 @@ def trainer(model, train_dataloader, val_dataloader, optimizer, criterion, epoch
 
             y_pred = model(x)
 
-            loss = criterion(y_real, y_pred)
+            loss = criterion(y_pred, y_real)
             
             optimizer.zero_grad()
             loss.backward()
@@ -69,21 +69,19 @@ def trainer(model, train_dataloader, val_dataloader, optimizer, criterion, epoch
         train_loss = train_loss/batch_counter
         batch_counter = 0
 
-        model.eval()
-        for batch in val_dataloader:
-            x, y_real = batch
-            x, y_real = x.to(device), y_real.to(device)
-
-            y_pred = model(x)
-
-            loss = criterion(y_real, y_pred)
-
-            batch_counter += 1
-            val_loss += loss
-            
-        val_loss = val_loss/batch_counter
-
-        model.eval()
-        
         if (epoch+1) % verbose == 0:
+            model.eval()
+            for batch in val_dataloader:
+                x, y_real = batch
+                x, y_real = x.to(device), y_real.to(device)
+
+                y_pred = model(x)
+
+                loss = criterion(y_pred, y_real)
+
+                batch_counter += 1
+                val_loss += loss
+                
+            val_loss = val_loss/batch_counter
+        
             print("Epoch: {} :::: Train loss {} :::: Val loss {} \n".format(epoch+1, train_loss, val_loss))
