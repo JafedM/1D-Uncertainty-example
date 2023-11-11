@@ -1,4 +1,4 @@
-# 1D-Uncertanity-example
-An example of uncertanity in 1D with deep-ensembles, masksembles and dropout
+# 1D-Uncertainty-example
+An example of uncertainty in 1D with deep-ensembles, masksembles and dropout
 
-This respository is an aexample of how to apply the Bayesian Depp learning to estiamte uncertanity in a 1D problem using deep-ensembles, masksembles and dropout.
+This repository is an example of how to apply the Bayesian Deep learning to estimate uncertainty in a 1D problem using deep-ensembles, masksembles and dropout.
