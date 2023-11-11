@@ -11,14 +11,14 @@ This repository is an example of how to apply the Bayesian Deep learning to esti
 
 ## References
 ```
-@inproceedings{Ensambles,
+@inproceedings{
  author = {Lakshminarayanan, Balaji and Pritzel, Alexander and Blundell, Charles},
  title = {Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles},
  url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pdf},
  year = {2017}
 }
 
-@misc{kendall2017uncertainties,
+@misc{
       title={What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?}, 
       author={Alex Kendall and Yarin Gal},
       year={2017},
@@ -26,7 +26,7 @@ This repository is an example of how to apply the Bayesian Deep learning to esti
       archivePrefix={arXiv},
 }
 
-@misc{masksembles,
+@misc{
       title={Masksembles for Uncertainty Estimation}, 
       author={Nikita Durasov and Timur Bagautdinov and Pierre Baque and Pascal Fua},
       year={2021},
