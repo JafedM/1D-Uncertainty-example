@@ -5,6 +5,6 @@ This repository is an example of how to apply the Bayesian Deep learning to esti
 
 ## Examples
 
-![example](https://github.com/JafedM/1D-Uncertainty-example/tree/main/Images/Mask_epistemic.png)
+![epistemic](https://github.com/JafedM/1D-Uncertainty-example/blob/main/Images/Mask_epistemic.png)
 
-![example](https://github.com/JafedM/1D-Uncertainty-example/tree/main/Images/Ensemble_aleatoric.png)
+![aleatoric](https://github.com/JafedM/1D-Uncertainty-example/blob/main/Images/Ensemble_aleatoric.png)
