@@ -13,13 +13,8 @@ This repository is an example of how to apply the Bayesian Deep learning to esti
 ```
 @inproceedings{Ensambles,
  author = {Lakshminarayanan, Balaji and Pritzel, Alexander and Blundell, Charles},
- booktitle = {Advances in Neural Information Processing Systems},
- editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
- pages = {},
- publisher = {Curran Associates, Inc.},
  title = {Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles},
  url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pdf},
- volume = {30},
  year = {2017}
 }
 
@@ -29,7 +24,6 @@ This repository is an example of how to apply the Bayesian Deep learning to esti
       year={2017},
       eprint={1703.04977},
       archivePrefix={arXiv},
-      primaryClass={cs.CV}
 }
 
 @misc{masksembles,
@@ -38,5 +32,4 @@ This repository is an example of how to apply the Bayesian Deep learning to esti
       year={2021},
       eprint={2012.08334},
       archivePrefix={arXiv},
-      primaryClass={cs.LG}
 }
