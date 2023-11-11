@@ -5,38 +5,6 @@ This repository is an example of how to apply the Bayesian Deep learning to esti
 
 ## Examples
 
-![example](https://github.com/JafedM/1D-Uncertainty-example/tree/main/Images/Mask_epistemic.png)
+![epistemic](https://github.com/JafedM/1D-Uncertainty-example/blob/main/Images/Mask_epistemic.png)
 
-![example](https://github.com/JafedM/1D-Uncertainty-example/tree/main/Images/Ensemble_aleatoric.png)
-
-## References
-```
-@inproceedings{Ensambles,
- author = {Lakshminarayanan, Balaji and Pritzel, Alexander and Blundell, Charles},
- booktitle = {Advances in Neural Information Processing Systems},
- editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
- pages = {},
- publisher = {Curran Associates, Inc.},
- title = {Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles},
- url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pdf},
- volume = {30},
- year = {2017}
-}
-
-@misc{kendall2017uncertainties,
-      title={What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?}, 
-      author={Alex Kendall and Yarin Gal},
-      year={2017},
-      eprint={1703.04977},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-
-@misc{masksembles,
-      title={Masksembles for Uncertainty Estimation}, 
-      author={Nikita Durasov and Timur Bagautdinov and Pierre Baque and Pascal Fua},
-      year={2021},
-      eprint={2012.08334},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
+![aleatoric](https://github.com/JafedM/1D-Uncertainty-example/blob/main/Images/Ensemble_aleatoric.png)
