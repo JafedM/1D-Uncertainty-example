@@ -34,6 +34,22 @@ class CustomDataset(Dataset):
     def __getitem__(self, idx):
         return self.X[idx], self.y[idx]
     
+@torch.inference_mode()
+def eval_model(model, val_dataloader, criterion, epoch, device):
+    batch_counter = 0
+    val_loss = 0
+    torch.cuda.empty_cache()
+    model.eval()
+    for input, tgt in val_dataloader:
+        input = input.to(device)
+        y_real = tgt.to(device)
+        y_pred = model(input)
+        val_loss += criterion(y_pred, y_real)
+        batch_counter += 1
+        
+    val_loss = val_loss/batch_counter
+    return val_loss
+
 def trainer(model, train_dataloader, val_dataloader, optimizer, criterion, epochs=10, device=None, verbose=5):
     '''
     Function to train a model
@@ -46,6 +62,7 @@ def trainer(model, train_dataloader, val_dataloader, optimizer, criterion, epoch
 
     #Training
     for epoch in range(epochs):
+        torch.cuda.empty_cache()
         val_loss = 0 
         train_loss = 0
         batch_counter = 0
@@ -70,18 +87,6 @@ def trainer(model, train_dataloader, val_dataloader, optimizer, criterion, epoch
         batch_counter = 0
 
         if (epoch+1) % verbose == 0:
-            model.eval()
-            for batch in val_dataloader:
-                x, y_real = batch
-                x, y_real = x.to(device), y_real.to(device)
-
-                y_pred = model(x)
-
-                loss = criterion(y_pred, y_real)
-
-                batch_counter += 1
-                val_loss += loss
-                
-            val_loss = val_loss/batch_counter
+            val_loss = eval_model(model, val_dataloader, criterion, epoch, device)
         
-            print("Epoch: {} :::: Train loss {} :::: Val loss {} \n".format(epoch+1, train_loss, val_loss))
+            print("Epoch: {} :::: Train loss {} :::: Val loss {}\n".format(epoch+1, train_loss, val_loss))
